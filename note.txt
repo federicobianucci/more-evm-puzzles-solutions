@@ -20,7 +20,7 @@ F1 <-call
 60 00
 f3
 
-0x60008080806002340460005AF16001601860003960016000f300
+0x60008080806002340460005af16001601860003960016000f300
 
 ############
 # Puzzle 7 #
@@ -41,5 +41,44 @@ f3
 10      56        JUMP          8
 
 11      5B        JUMPDEST      3
+
+5 + 43 * x - 11 = 166
+
+############
+# Puzzle 8 #
+############
+# NOTE: this puzzle is not well written if you go to https://www.evm.codes/playground it should pass even with an empty contract (calldata: 0x)
+
+# init
+0x6012600c60003960126000f3
+# runtime
+60016080526001608060006000034335af1
+
+############
+# Puzzle 9 #
+############
+
+# find kekkak256(value) than starts with a8
+PUSH32 1
+JUMPDEST
+DUP1
+PUSH1 0
+MSTORE
+PUSH1 32
+PUSH1 0
+SHA3
+PUSH1 0xF8
+SHR
+PUSH1 0xA8
+EQ
+PUSH1 0x3a
+JUMPI
+PUSH1 1
+ADD
+PUSH1 0x21
+JUMP
+JUMPDEST
+STOP
+
 
 
